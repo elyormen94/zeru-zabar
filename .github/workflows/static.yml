@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<p class="muted">To'liq ilmiy maqolalar va tarjimai hol havolalari.</p>
+<div class="price">8 000 so'm</div>
+<div class="actions">
+<button class="pay-btn pay-click" data-product="maqola" data-method="click">Click</button>
+<button class="pay-btn pay-payme" data-product="maqola" data-method="payme">Payme</button>
+</div>
+</article>
+
+
+<article class="card">
+<h3>Kurslar</h3>
+<p class="muted">Online videokurslar va interaktiv darslar paketlari.</p>
+<div class="price">50 000 so'm</div>
+<div class="actions">
+<button class="pay-btn pay-uzum" data-product="kurs" data-method="uzum">Uzum</button>
+<button class="pay-btn pay-humo" data-product="kurs" data-method="humo">Humo</button>
+</div>
+</article>
+
+
+</div>
+</section>
+
+
+<section id="about" style="margin-top:26px">
+<div class="card">
+<h3>Biz haqimizda</h3>
+<p class="muted">Zeru‑Zabar — o'qituvchilar va talabchilar uchun tayyorlangan sifatli ta'lim resurslari do'koni. Har bir mahsulot sinovdan o'tgan va ma'ruzachilar tomonidan tasdiqlangan.</p>
+</div>
+</section>
+
+
+<section id="contact" style="margin-top:18px">
+<div class="card">
+<h3>Kontakt</h3>
+<p class="muted">Email: <a href="mailto:hello@zeru-zabar.uz">hello@zeru-zabar.uz</a></p>
+</div>
+</section>
+
+
+</div>
+</main>
+
+
+<footer>
+<div class="wrap">
+© 2025 Zeru‑Zabar. Barcha huquqlar himoyalangan.
+</div>
+</footer>
+
+
+<script>
+// Bu joyda haqiqiy to'lov linklarini joylang (Click/Payme/Uzum/Humo merchant linklari)
+const paymentMap = {
+click: 'https://click.uz/example-pay-link',
+payme: 'https://payme.uz/example-pay-link',
+uzum: 'https://uzum.uz/example-pay-link',
+humo: 'https://humo.uz/example-pay-link'
+}
+
+
+document.querySelectorAll('.pay-btn').forEach(btn=>{
+btn.addEventListener('click',()=>{
+const method = btn.dataset.method;
+const product = btn.dataset.product;
+// Bu yerda siz serverdan yoki CMS dan real link olasiz
+const url = paymentMap[method] + '?product='+encodeURIComponent(product);
+window.open(url, '_blank');
+})
+})
+</script>
+</body>
+</html>
